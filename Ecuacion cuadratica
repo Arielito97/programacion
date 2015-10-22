@@ -1,0 +1,70 @@
+// Ecuacion cuadratica
+// Autor: Ariel Flores
+// Fecha: 22/oct/2015
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+float discriminante (float A, float B, float C);
+float unica (float A, float B);
+void real (float A, float B, float D,float &x1, float &x2);
+void imaginaria ( float A, float B, float D, float &xr ,float &xi);
+
+void main ()
+	
+{
+	float  a,b,c,d,x1,x2,xr,xi;
+	char resp;
+	do
+	{
+	cout<< " Ingrese el valor de a:";
+	cin>> a;
+	cout<<" Ingrese el valor de b:";
+	cin>> b;
+	cout<< "Ingrese el valor de c:";
+	cin>> c;
+	d=discriminante(a,b,c);
+	if(d==0)
+	{
+		x1==unica(a,b);
+		cout<<"La solucion es:"<<x1;
+	}
+	else
+		if (d>0)
+		{  real(a,b,d,x1,x2);
+	       cout<<"La sulucion x1:"<<x1;
+		   cout<<"La soluciom x2:"<<x2;
+     	}
+		else
+	    {  imaginaria(a,b,d,xr,xi);
+	       cout<<" La solucion  x1: "<<xr<<"+" <<xi<<"i";
+		   cout<< " la solucion x2: "<<xr<<"-" <<xi<<"i"; 
+	}
+	cout<<"desea continuar (y) es";
+	cin>> resp;} 
+	while (resp=='Y');
+	getch();
+}
+   
+float discriminante(float A, float B, float C)
+		{float aux;
+	     aux=pow(B,2);
+		 return aux;
+	    }
+void real(float A, float B, float D, float &x1,float &x2)
+		{x1=(-B+sqrt(D))/(2*A);
+	     x2=(-B-sqrt(D))/(2*A);
+	    }
+float unica(float A, float B)
+	    {float x;
+		x=B/(2*A);
+		return x;
+		}
+void imaginaria(float A, float B, float D, float &xr, float &xi)
+	    {xr=B/(2*A);
+	     xi=sqrt(D)/(2*A);
+	}  
+ 
